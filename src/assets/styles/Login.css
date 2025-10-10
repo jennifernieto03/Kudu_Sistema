@@ -1,4 +1,5 @@
 /* Fondo global */
+    @import "tailwindcss";
 body{  
   margin: 0;
   font-family: Arial, sans-serif;
@@ -123,4 +124,16 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#Bold_text{
+  font-weight: 900;
+}
+#text_box{
+  /*background-color:white;*/
+}
+
+#forgot{
+  color: #667eea;  
+  font-size: 14px;
+  text-align: center;
 }
