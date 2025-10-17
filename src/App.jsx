@@ -1,18 +1,30 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Login from './views/Login.jsx';
+import { LoadScreen } from './components/LoadScreen.jsx';
 import './App.css';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleLogin = (userData) => {
     setUser(userData);
-    console.log('Usuario logueado:', userData);
   };
 
   const handleLogout = () => {
     setUser(null);
   };
+
+  if (loading) {
+    return <LoadScreen />;
+  }
 
   // Si no hay usuario, mostrar formulario de login
   if (!user) {
